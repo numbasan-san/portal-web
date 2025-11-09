@@ -63,4 +63,9 @@ def not_found(e):
 # === EJECUCIÓN === #
 if __name__ == '__main__':
     app.register_error_handler(404, not_found)
-    app.run(debug=True, threaded=True)
+    
+    from gevent.pywsgi import WSGIServer
+    http_server = WSGIServer(('', 5000), app)
+    http_server.serve_forever()
+
+    # app.run(debug=True, threaded=True)
