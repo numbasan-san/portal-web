@@ -1,0 +1,32 @@
+ 
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100" style="z-index: 500">
+    <div class="container float-center">
+
+        <a class="navbar-brand" href="{{ url_for('index') }}">INDEX</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('definition')}}" tabindex="-1" >Definición</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('structure')}}" tabindex="-1" >Estructura</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('middle_end_code')}}" tabindex="-1" >Cod. Med. Fin.</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('phases')}}" tabindex="-1" >Fases</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('compilers')}}" tabindex="-1" >Compiladores</a>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('fonts')}}" tabindex="-1" >Fuentes</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

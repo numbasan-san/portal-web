@@ -1,0 +1,18 @@
+
+{% include "./partials/head.html" %}
+
+    <body>
+        
+        {% include "./partials/navbar.html" %}
+        
+        <main  style="padding-top: 57px;">
+            <div class="container-fluid page-container">
+
+                {% block body %}
+                {% endblock %}
+        
+            </div>
+        </main>
+        
+    {% include "./partials/footer.html" %}
+

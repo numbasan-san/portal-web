@@ -1,0 +1,26 @@
+
+{% extends "./partials/base.html" %}
+
+{% block body %}
+        <br  />
+    <div class="container container-fluid page-container">
+        <h3 class="mb-3">Generador de Documentación</h3>
+
+        <div class="mb-3">
+            <label for="filename-input" class="form-label">Nombre del archivo (sin .html)</label>
+            <input type="text" id="filename-input" class="form-control" placeholder="mi_documentacion">
+        </div>
+        <div class="mb-3">
+            <label for="doc-input" class="form-label">Escribe tu documentación (Markdown)</label>
+            <textarea id="doc-input" class="form-control" rows="10" placeholder="# Título&#10;Esto es una descripción..."></textarea>
+        </div>
+
+        <div class="mb-3 d-flex gap-2">
+            <button class="btn btn-primary" onclick="generate()">Previsualizar</button>
+            <button class="btn btn-success" onclick="downloadHTML()">Descargar HTML</button>
+        </div>
+
+        <h5>Vista previa:</h5>
+        <div id="doc-output" class="output"></div>
+    </div>
+{% endblock %}

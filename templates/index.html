@@ -1,0 +1,31 @@
+{% extends "./partials/base.html" %}
+
+{% block body %}
+    <br  />
+<div class="container container-fluid page-container">
+    <div class="text-center">
+        <h2 class="text-uppercase">integrantes</h2>
+            <hr />        
+        <div class="integrante-layout">
+            {% for integrante in data.integrantes %}
+                
+                <div class="integrante-card">
+                    <a href="#" class="card-link">
+                        <img class="integrante-img" 
+                             src="/static/imgs/{{ integrante.img }}" 
+                             alt="{{ integrante.nombre }}" />
+                        <div class="card-body-overlay">
+                            <h3 class="integrante-name">{{ integrante.nombre }}</h3>
+                            <p class="integrante-info">
+                                <strong>Matrícula:</strong> {{ integrante.matricula }}
+                            </p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+            <hr />
+        <h2>Grupo 2</h2>
+    </div>
+</div>
+{% endblock %}
