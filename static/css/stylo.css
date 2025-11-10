@@ -1,0 +1,538 @@
+
+/* ===== IMPORTAR FUENTES SAIRA ===== */
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@300;400;500;600;700;800&family=Saira+Extra+Condensed:wght@300;400;500;600;700;800&display=swap');
+
+/* ===== VARIABLES ===== */
+:root {
+    /* Paleta base */
+    --black: #ffffff;
+    --white: #000000;
+    --orange: #ff8400;
+    
+    /* Colores del theme YouTube */
+    --background-primary: #ffffff;
+    --background-secondary: #fafafa;
+    --background-tertiary: #f5f5f5;
+    --background-hover: #f0f0f0;
+    --background-card: #f8f8f8;
+    --background-header: #f2f2f2;
+    
+    /* Textos */
+    --text-primary: #000000;
+    --text-secondary: #444444;
+    --text-muted: #666666;
+    
+    /* Bordes y separadores */
+    --border-color: #e0e0e0;
+    --border-light: #d0d0d0;
+    
+    /* Acentos */
+    --accent-blue: #3ea6ff;
+    --accent-red: #ff4e45;
+    --accent-green: #2ba640;
+    --accent-purple: #9146ff;  /* Color morado para Roslyn */
+}
+
+/* Agrega estas reglas CSS adicionales para los estilos morados */
+.border-purple {
+    border-color: var(--accent-purple) !important;
+}
+
+.bg-purple {
+    background-color: var(--accent-purple) !important;
+}
+
+.text-purple {
+    color: var(--accent-purple) !important;
+}
+
+.card-header.bg-purple {
+    background: var(--background-header) !important;
+    color: var(--accent-purple);
+    border-left: 4px solid var(--accent-purple);
+}
+
+.badge.bg-purple {
+    background: var(--accent-purple) !important;
+}
+
+/* ===== RESET Y ESTILOS BASE ===== */
+*:not(.btn, .badge, .card, .accordion-button, .integrante-card, .phase-number, .timeline-phase, .phase-content) {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+}
+
+body {
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* ===== TIPOGRAFÍA SAIRA ===== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Saira Extra Condensed', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.5px;
+    color: var(--text-primary);
+}
+
+h2.text-uppercase {
+    font-weight: 800;
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+    margin-bottom: 1.5rem;
+    color: var(--white);
+}
+
+h3 {
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+
+h5 {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+h6 {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.lead {
+    color: var(--text-secondary);
+    font-weight: 500;
+    font-size: 1.5rem;
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+/* ===== CONTENEDOR PRINCIPAL ===== */
+.page-container {
+    background: var(--background-secondary);
+    padding: 2rem;
+    margin-top: 1rem;
+    border: 1px solid var(--border-color);
+    min-height: calc(100vh - 100px);
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background: var(--border-color);
+    margin: 2rem 0;
+    opacity: 0.6;
+}
+
+/* ===== TARJETAS DE INTEGRANTES (Estilo YouTube) ===== */
+.integrante-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.integrante-card {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    width: 100%;
+    height: 320px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    background: var(--background-card);
+}
+
+.integrante-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--orange);
+    background: var(--background-hover);
+}
+
+.integrante-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.9);
+    transition: filter 0.3s ease;
+}
+
+.integrante-card:hover .integrante-img {
+    filter: brightness(0.7);
+}
+
+.card-body-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(17, 17, 17, 0.95));
+    padding: 1.5rem;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.integrante-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: var(--orange);
+    font-family: 'Saira Extra Condensed', sans-serif;
+    letter-spacing: -0.5px;
+}
+
+.integrante-info {
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+    color: var(--text-secondary);
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+/* ===== ACORDEÓN (Estilo YouTube) ===== */
+.accordion {
+    border: 1px solid var(--border-color);
+}
+
+.accordion-item {
+    background: var(--background-card);
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-button {
+    background: var(--background-card);
+    color: var(--text-primary);
+    font-weight: 600;
+    border: none;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.2rem;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    transition: all 0.2s ease;
+}
+
+.accordion-button:not(.collapsed) {
+    background: var(--background-hover);
+    color: var(--orange);
+    box-shadow: none;
+}
+
+.accordion-button:hover {
+    background: var(--background-hover);
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: var(--orange);
+}
+
+.accordion-body {
+    background: var(--background-tertiary);
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem;
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* ===== TARJETAS INFORMATIVAS ===== */
+.card {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    margin-bottom: 1.5rem;
+}
+
+.card:hover {
+    border-color: var(--orange);
+    background: var(--background-hover);
+}
+
+.card-header {
+    background: var(--background-header) !important;
+    border-bottom: 1px solid var(--border-color);
+    font-weight: 700;
+    padding: 1.25rem 1.5rem;
+    font-size: 1.3rem;
+    font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+.card-header.bg-primary { background: var(--background-header) !important; color: var(--accent-blue); border-left: 4px solid var(--accent-blue); }
+.card-header.bg-success { background: var(--background-header) !important; color: var(--accent-green); border-left: 4px solid var(--accent-green); }
+.card-header.bg-info { background: var(--background-header) !important; color: var(--accent-orange); border-left: 4px solid var(--accent-orange); }
+.card-header.bg-warning { background: var(--background-header) !important; color: var(--orange); border-left: 4px solid var(--orange); }
+.card-header.bg-danger { background: var(--background-header) !important; color: var(--accent-red); border-left: 4px solid var(--accent-red); }
+
+.card-body {
+    padding: 1.5rem;
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+}
+
+/* ===== TIMELINE FASES ===== */
+.compilation-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.compilation-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--orange), var(--accent-blue), var(--accent-green));
+}
+
+.timeline-phase {
+    position: relative;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.phase-number {
+    width: 30px;
+    height: 30px;
+    background: var(--orange);
+    color: var(--white);
+    border-radius: 0px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 1.1rem;
+    position: absolute;
+    left: -40px;
+    top: 0;
+    z-index: 2;
+    border: 2px solid var(--background-secondary);
+    font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+.phase-content {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    padding: 1.25rem 1.5rem;
+    margin-left: 1rem;
+    flex: 1;
+    transition: all 0.3s ease;
+}
+
+.phase-content:hover {
+    border-color: var(--orange);
+    background: var(--background-hover);
+}
+
+.phase-title {
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    font-weight: 700;
+    font-size: 1.3rem;
+    font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+.phase-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+/* Colores alternados para las fases */
+.timeline-phase:nth-child(odd) .phase-number { background: var(--accent-blue); }
+.timeline-phase:nth-child(even) .phase-number { background: var(--accent-green); }
+.timeline-phase:last-child .phase-number { background: var(--accent-orange); }
+
+/* ===== TABLAS ===== */
+.table {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+}
+
+.table thead th {
+    background: var(--background-header);
+    color: var(--text-primary);
+    border: none;
+    font-weight: 700;
+    padding: 1rem;
+    font-size: 1.1rem;
+    font-family: 'Saira Extra Condensed', sans-serif;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.table tbody td {
+    padding: 1rem;
+    border-color: var(--border-color);
+    vertical-align: middle;
+    font-family: 'Saira Condensed', sans-serif;
+    color: var(--text-secondary);
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: var(--background-tertiary);
+}
+
+.table tbody tr:hover {
+    background-color: var(--background-hover) !important;
+}
+
+/* ===== ALERTAS ===== */
+.alert {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid;
+    color: var(--text-secondary);
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 1.1rem;
+}
+
+.alert-info {
+    border-left-color: var(--accent-blue);
+}
+
+.alert-warning {
+    border-left-color: var(--orange);
+}
+
+/* ===== LISTAS ===== */
+.list-group-item {
+    background: var(--background-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 1.1rem;
+    transition: all 0.2s ease;
+}
+
+.list-group-item:hover {
+    background: var(--background-hover);
+    border-color: var(--orange);
+}
+
+.list-group-flush .list-group-item {
+    border-left: none;
+    border-right: none;
+}
+
+.list-group-flush .list-group-item:first-child {
+    border-top: none;
+}
+
+.list-group-flush .list-group-item:last-child {
+    border-bottom: none;
+}
+
+/* ===== BADGES ===== */
+.badge {
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 600;
+    border-radius: 0px !important;
+}
+
+.badge.bg-primary { background: var(--accent-blue) !important; }
+.badge.bg-success { background: var(--accent-green) !important; }
+.badge.bg-info { background: var(--accent-orange) !important; }
+.badge.bg-warning { background: var(--orange) !important; }
+
+/* ===== BOTONES ===== */
+.btn {
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: 600;
+    border-radius: 0px !important;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--accent-blue);
+    border: 1px solid var(--accent-blue);
+}
+
+.btn-primary:hover {
+    background: #2d8fdb;
+    border-color: #2d8fdb;
+}
+
+/* ===== UTILIDADES ===== */
+.text-primary { color: var(--accent-blue) !important; }
+.text-success { color: var(--accent-green) !important; }
+.text-info { color: var(--accent-orange) !important; }
+.text-warning { color: var(--orange) !important; }
+.text-danger { color: var(--accent-red) !important; }
+
+.bg-light { background-color: var(--background-tertiary) !important; }
+.border-primary { border-color: var(--accent-blue) !important; }
+.border-success { border-color: var(--accent-green) !important; }
+.border-info { border-color: var(--accent-orange) !important; }
+.border-warning { border-color: var(--orange) !important; }
+
+/* ===== EFECTOS HOVER ===== */
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    border-color: var(--orange);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .page-container {
+        padding: 1rem;
+        margin: 0.5rem;
+    }
+    
+    .compilation-timeline {
+        padding-left: 25px;
+    }
+    
+    .phase-number {
+        left: -32px;
+        width: 25px;
+        height: 25px;
+        font-size: 0.9rem;
+    }
+    
+    .phase-content {
+        padding: 1rem;
+        margin-left: 0.5rem;
+    }
+    
+    .integrante-layout {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    h2.text-uppercase {
+        font-size: 2rem;
+    }
+}
+
+/* ===== SCROLLBAR PERSONALIZADO ===== */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-primary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--orange);
+}

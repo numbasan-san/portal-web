@@ -1,10 +1,173 @@
-
+<!-- structure.html -->
 {% extends "./partials/base.html" %}
 
 {% block body %}
-        <br  />
-    <div class="container container-fluid page-container">
-        <h2 class="text-center text-uppercase">estructura</h2>
-            <hr  />
+<br>
+<div class="container container-fluid page-container">
+    <h2 class="text-center text-uppercase">estructura</h2>
+    <hr style="border: none; height: 1px; background: var(--orange);">
+    
+    <p class="lead fs-5" style="color: var(--text-secondary);">Un compilador se puede dividir conceptualmente en tres grandes componentes:</p>
+
+    <div class="accordion" id="estructuraCompilador" style="border: none;">
+        <!-- Front-end -->
+        <div class="accordion-item" style="background: transparent; border: none; border-bottom: 1px solid var(--orange); margin-bottom: 1rem;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#flush-frontend" aria-expanded="false" aria-controls="flush-frontend"
+                        style="color: var(--text-primary); background: transparent; border: none; padding: 1.5rem; font-size: 1.3rem; transition: color 0.3s ease;">
+                    <strong class="text-capitalize">
+                        <i class="fas fa-code me-2"></i>Front-end
+                    </strong>
+                </button>
+            </h2>
+            <div id="flush-frontend" class="accordion-collapse collapse" data-bs-parent="#estructuraCompilador">
+                <div class="accordion-body" style="border: none; padding: 2rem;">
+                    <ul class="list-unstyled">
+                        <li class="mb-3 p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Análisis léxico (scanner / lexer):</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Convierte secuencia de caracteres en tokens (identificadores, literales, operadores, palabras reservadas). Realiza eliminación de comentarios y gestión de espacios en blanco.
+                            </span>
+                        </li>
+                        <li class="mb-3 p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Análisis sintáctico (parser):</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Toma tokens y construye una representación estructurada (árbol sintáctico o AST — Abstract Syntax Tree) según la gramática del lenguaje. Detecta errores sintácticos.
+                            </span>
+                        </li>
+                        <li class="mb-3 p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Análisis semántico:</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Comprueba tipos, ámbitos (scope), declaraciones/definiciones, coherencia semántica, y construye o completa la tabla de símbolos. Puede incluir inferencia de tipos y verificación de reglas semánticas del lenguaje.
+                            </span>
+                        </li>
+                        <li class="p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Generación de errores y advertencias:</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Localización y presentación de mensajes útiles para el programador.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Middle-end -->
+        <div class="accordion-item" style="background: transparent; border: none; border-bottom: 1px solid var(--orange); margin-bottom: 1rem;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#flush-middleend" aria-expanded="false" aria-controls="flush-middleend"
+                        style="color: var(--text-primary); background: transparent; border: none; padding: 1.5rem; font-size: 1.3rem; transition: color 0.3s ease;">
+                    <strong class="text-capitalize">
+                        <i class="fas fa-cogs me-2"></i>Middle-end
+                    </strong>
+                </button>
+            </h2>
+            <div id="flush-middleend" class="accordion-collapse collapse" data-bs-parent="#estructuraCompilador">
+                <div class="accordion-body" style="border: none; padding: 2rem;">
+                    <ul class="list-unstyled">
+                        <li class="mb-3 p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Representación intermedia (IR — Intermediate Representation):</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Conversión del AST a una o varias formas de IR (tres direcciones, SSA — Static Single Assignment—, bytecode, etc.). El IR debe ser independiente de la máquina objetivo y apto para análisis/optimización.
+                            </span>
+                        </li>
+                        <li class="p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Optimización de código:</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Aplicación de optimizaciones locales (por ejemplo, propagación de constantes, eliminación de código muerto), globales (análisis de flujo de datos, optimizaciones de bucle) y de alto nivel (inlining, vectorización). Muchas optimizaciones se realizan sobre el IR.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Back-end -->
+        <div class="accordion-item" style="background: transparent; border: none; border-bottom: 1px solid var(--orange); margin-bottom: 1rem;">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#flush-backend" aria-expanded="false" aria-controls="flush-backend"
+                        style="color: var(--text-primary); background: transparent; border: none; padding: 1.5rem; font-size: 1.3rem; transition: color 0.3s ease;">
+                    <strong class="text-capitalize">
+                        <i class="fas fa-microchip me-2"></i>Back-end
+                    </strong>
+                </button>
+            </h2>
+            <div id="flush-backend" class="accordion-collapse collapse" data-bs-parent="#estructuraCompilador">
+                <div class="accordion-body" style="border: none; padding: 2rem;">
+                    <ul class="list-unstyled">
+                        <li class="mb-3 p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Generación de código final:</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Traducción del IR optimizado a código de bajo nivel (instrucciones de la ISA objetivo o ensamblador). Incluye mapeo de operaciones, generación de llamadas a funciones, manejo de la pila.
+                            </span>
+                        </li>
+                        <li class="mb-3 p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Asignación de registros (register allocation):</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Asignación eficiente de variables temporales a registros de la CPU (algoritmos basados en coloreo de grafos o asignación lineal).
+                            </span>
+                        </li>
+                        <li class="mb-3 p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Optimización específica de la arquitectura:</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Peephole optimizations, selección de instrucciones, manejo de delay slots, soporte para instrucciones vectoriales y SIMD.
+                            </span>
+                        </li>
+                        <li class="p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Generación de ensamblador y enlazado (linking):</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Emisión de archivos objeto y uso de enlazador para resolver referencias externas y producir ejecutable.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Otros componentes -->
+        <div class="accordion-item" style="background: transparent; border: none; border-bottom: 1px solid var(--orange);">
+            <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                        data-bs-target="#flush-otros" aria-expanded="false" aria-controls="flush-otros"
+                        style="color: var(--text-primary); background: transparent; border: none; padding: 1.5rem; font-size: 1.3rem; transition: color 0.3s ease;">
+                    <strong class="text-capitalize">
+                        <i class="fas fa-tools me-2"></i>Otros componentes relevantes
+                    </strong>
+                </button>
+            </h2>
+            <div id="flush-otros" class="accordion-collapse collapse" data-bs-parent="#estructuraCompilador">
+                <div class="accordion-body" style="border: none; padding: 2rem;">
+                    <ul class="list-unstyled">
+                        <li class="mb-3 p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Librerías de tiempo de ejecución (runtime):</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Manejo de memoria, recolector de basura (si existe), soporte para excepciones, inicialización estática.
+                            </span>
+                        </li>
+                        <li class="p-3" style="border-left: 2px solid var(--orange);">
+                            <strong style="color: var(--orange);">Herramientas auxiliares:</strong> 
+                            <span style="color: var(--text-secondary);">
+                                Preprocesador (por ejemplo C/C++), herramientas de perfilado, generadores de documentación, analizadores de dependencias.
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
+
+</div>
+
+<style>
+.accordion-button:not(.collapsed) {
+    color: var(--orange) !important;
+}
+
+.accordion-button:not(.collapsed) .fas {
+    color: var(--orange) !important;
+}
+</style>
 {% endblock %}

@@ -1,10 +1,257 @@
-
+<!-- phases.html -->
 {% extends "./partials/base.html" %}
 
 {% block body %}
-        <br  />
-    <div class="container container-fluid page-container">
-        <h2 class="text-center text-uppercase">fases</h2>
-            <hr  />
+<br>
+<div class="container container-fluid page-container">
+    <h2 class="text-center text-uppercase">{{ data.title }}</h2>
+    <hr style="border: none; height: 1px; background: var(--orange);">
+
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <!-- Timeline de fases de compilación -->
+            <div class="compilation-timeline">
+                <!-- Fase 1 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">1</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Preprocesamiento (opcional)</h5>
+                        <p class="phase-description mb-0">
+                            Expansión de macros, inclusión de ficheros (ej. #include), manejo de directivas de compilador.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 2 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">2</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Análisis léxico (tokenización)</h5>
+                        <p class="phase-description mb-0">
+                            Reconocimiento de tokens básicos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 3 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">3</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Análisis sintáctico (parsing)</h5>
+                        <p class="phase-description mb-0">
+                            Generación del árbol sintáctico (AST) o estructura intermedia.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 4 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">4</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Análisis semántico</h5>
+                        <p class="phase-description mb-0">
+                            Comprobaciones de tipos, alcance, coherencia semántica; generación de la tabla de símbolos.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 5 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">5</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Generación de código intermedio (IR)</h5>
+                        <p class="phase-description mb-0">
+                            Conversión del AST a una representación apta para optimización.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 6 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">6</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Optimización (intermedia)</h5>
+                        <p class="phase-description mb-0">
+                            Transformaciones y mejoras en IR.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 7 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">7</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Generación de código (back-end)</h5>
+                        <p class="phase-description mb-0">
+                            Traducción a instrucciones de la máquina objetivo.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 8 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">8</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Optimización de bajo nivel</h5>
+                        <p class="phase-description mb-0">
+                            Ajustes específicos de la ISA (peephole, scheduling).
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 9 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">9</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Generación de ensamblador y ensamblado</h5>
+                        <p class="phase-description mb-0">
+                            Producción de código ensamblador y compilación a objeto.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 10 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">10</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Enlazado (linking)</h5>
+                        <p class="phase-description mb-0">
+                            Unión de módulos y resolución de referencias externas para generar ejecutable.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Fase 11 -->
+                <div class="timeline-phase">
+                    <div class="phase-number">11</div>
+                    <div class="phase-content">
+                        <h5 class="phase-title">Carga y ejecución (runtime)</h5>
+                        <p class="phase-description mb-0">
+                            El sistema operativo carga y ejecuta el binario; el runtime del lenguaje gestiona aspectos como memoria y excepciones.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nota final -->
+            <div class="alert alert-info mt-4">
+                <i class="fas fa-info-circle me-2"></i>
+                <strong>Nota:</strong> Cada fase puede generar advertencias y errores que el compilador presenta al desarrollador.
+            </div>
+        </div>
     </div>
+</div>
+
+<style>
+.compilation-timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.compilation-timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--orange), var(--white), var(--accent-red));
+}
+
+.timeline-phase {
+    position: relative;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.phase-number {
+    width: 30px;
+    height: 30px;
+    background: var(--orange);
+    color: white;
+    border-radius: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    position: absolute;
+    left: -45px;
+    top: 0;
+    z-index: 2;
+    font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+.phase-content {
+    background: var(--background-card);
+    border-left: 2px solid var(--orange);
+    padding: 1rem 1.5rem;
+    margin-left: 1rem;
+    flex: 1;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.phase-content:hover {
+    transform: translateX(5px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-left-color: var(--orange);
+}
+
+.phase-title {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-family: 'Saira Extra Condensed', sans-serif;
+}
+
+.phase-description {
+    color: var(--text-secondary);
+    line-height: 1.5;
+    font-family: 'Saira Condensed', sans-serif;
+}
+
+/* Colores alternados para las fases - Naranja y Negro */
+.timeline-phase:nth-child(odd) .phase-content {
+    border-left-color: var(--orange);
+}
+
+.timeline-phase:nth-child(odd) .phase-number {
+    background: var(--orange);
+}
+
+.timeline-phase:nth-child(even) .phase-content {
+    border-left-color: var(--white);
+}
+
+.timeline-phase:nth-child(even) .phase-number {
+    background: var(--white);
+    color: var(--black);
+}
+
+.timeline-phase:last-child .phase-content {
+    border-left-color: var(--accent-red);
+}
+
+.timeline-phase:last-child .phase-number {
+    background: var(--accent-red);
+}
+
+@media (max-width: 768px) {
+    .compilation-timeline {
+        padding-left: 20px;
+    }
+    
+    .phase-number {
+        left: -35px;
+        width: 25px;
+        height: 25px;
+        font-size: 0.8rem;
+    }
+    
+    .phase-content {
+        padding: 0.75rem 1rem;
+    }
+}
+</style>
 {% endblock %}

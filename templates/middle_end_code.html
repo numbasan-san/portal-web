@@ -1,10 +1,241 @@
-
+<!-- middle_end_code.html -->
 {% extends "./partials/base.html" %}
 
 {% block body %}
-        <br  />
-    <div class="container container-fluid page-container">
-        <h2 class="text-center text-uppercase">generación de código intermedio y final</h2>
-            <hr  />
+<br>
+<div class="container container-fluid page-container">
+    <h2 class="text-center text-uppercase">generación de código intermedio y final</h2>
+    <hr style="border: none; height: 1px; background: var(--orange);">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <!-- Introducción -->
+            <div class="">
+                <div class="border-bottom pb-3 mb-4">
+                    <h4 class="mb-0" style="color: var(--orange);"><i class="fas fa-layer-group me-2"></i>¿Qué es el código intermedio (IR)?</h4>
+                </div>
+                <div class="">
+                    <p class="fs-5">
+                        El código intermedio es una representación del programa situada entre el lenguaje fuente y el código máquina. 
+                        Sus objetivos son:
+                    </p>
+                    <div class="mt-3">
+                        <div class="d-flex align-items-start mb-3 p-3" style="border-left: 2px solid var(--orange);">
+                            <i class="fas fa-eye me-3 mt-1" style="color: var(--orange);"></i>
+                            <div>
+                                <span><strong>Abstraer detalles</strong> del lenguaje y de la máquina para facilitar análisis y optimización.</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-3 p-3" style="border-left: 2px solid var(--orange);">
+                            <i class="fas fa-exchange-alt me-3 mt-1" style="color: var(--orange);"></i>
+                            <div>
+                                <strong>Permitir portabilidad</strong>
+                                <span>el front-end produce IR y el back-end solo necesita traducir IR a la ISA objetivo.</span>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start p-3" style="border-left: 2px solid var(--orange);">
+                            <i class="fas fa-project-diagram me-3 mt-1" style="color: var(--orange);"></i>
+                            <div>
+                                <strong>Proporcionar una estructura adecuada</strong>
+                                <span>para aplicar transformaciones y optimizaciones.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tipos de IR -->
+            <div class="mt-5">
+                <div class="border-bottom pb-3 mb-4">
+                    <h4 class="mb-0" style="color: var(--orange);"><i class="fas fa-code-branch me-2"></i>Tipos comunes de IR</h4>
+                </div>
+                <div class="">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <div class="h-100 border-bottom hover-lift p-4" style="border-color: var(--orange) !important; transition: all 0.3s ease;">
+                                <div class="text-center">
+                                    <i class="fas fa-sitemap fa-2x mb-3" style="color: var(--orange);"></i>
+                                    <h5 class="" style="color: var(--text-primary); transition: color 0.3s ease;">Árboles (AST extendidos)</h5>
+                                    <p class="">Estructuras jerárquicas que representan expresiones y sentencias.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="h-100 border-bottom hover-lift p-4" style="border-color: var(--orange) !important; transition: all 0.3s ease;">
+                                <div class="text-center">
+                                    <i class="fas fa-list-ol fa-2x mb-3" style="color: var(--orange);"></i>
+                                    <h5 class="" style="color: var(--text-primary); transition: color 0.3s ease;">Código de tres direcciones</h5>
+                                    <p class="">Secuencia lineal de instrucciones con temporales (ej. t1 = t2 + t3).</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="h-100 border-bottom hover-lift p-4" style="border-color: var(--orange) !important; transition: all 0.3s ease;">
+                                <div class="text-center">
+                                    <i class="fas fa-share-alt fa-2x mb-3" style="color: var(--orange);"></i>
+                                    <h5 class="" style="color: var(--text-primary); transition: color 0.3s ease;">SSA (Static Single Assignment)</h5>
+                                    <p class="">Forma en la que cada variable recibe asignación una única vez; facilita análisis de flujo de datos y optimizaciones.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <div class="h-100 border-bottom hover-lift p-4" style="border-color: var(--orange) !important; transition: all 0.3s ease;">
+                                <div class="text-center">
+                                    <i class="fas fa-cube fa-2x mb-3" style="color: var(--orange);"></i>
+                                    <h5 class="" style="color: var(--text-primary); transition: color 0.3s ease;">Bytecode / VM IR</h5>
+                                    <p class="">Representación para máquinas virtuales (por ejemplo, Java bytecode, CLR).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generación del IR -->
+            <div class="mt-5">
+                <div class="border-bottom pb-3 mb-4">
+                    <h4 class="mb-0" style="color: var(--orange);"><i class="fas fa-cogs me-2"></i>Generación del IR</h4>
+                </div>
+                <div class="">
+                    <p class="fs-5">
+                        Después del análisis sintáctico y semántico, el compilador traduce el AST a una o varias formas de IR. 
+                        Este proceso puede incluir:
+                    </p>
+                    <div class="row text-center mt-4">
+                        <div class="col-md-4 mb-3">
+                            <div class="p-4 border rounded-3 hover-lift" style="transition: all 0.3s ease;">
+                                <i class="fas fa-sync-alt fa-3x mb-3" style="color: var(--text-secondary); transition: color 0.3s ease;"></i>
+                                <h6 class="fw-bold" style="color: var(--text-primary); transition: color 0.3s ease;">Normalización de expresiones</h6>
+                                <small style="transition: color 0.3s ease;">Transformación a formas canónicas</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="p-4 border rounded-3 hover-lift" style="transition: all 0.3s ease;">
+                                <i class="fas fa-code fa-3x mb-3" style="color: var(--text-secondary); transition: color 0.3s ease;"></i>
+                                <h6 class="fw-bold" style="color: var(--text-primary); transition: color 0.3s ease;">Introducción de temporales</h6>
+                                <small style="transition: color 0.3s ease;">Variables intermedias para cálculos</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="p-4 border rounded-3 hover-lift" style="transition: all 0.3s ease;">
+                                <i class="fas fa-puzzle-piece fa-3x mb-3" style="color: var(--text-secondary); transition: color 0.3s ease;"></i>
+                                <h6 class="fw-bold" style="color: var(--text-primary); transition: color 0.3s ease;">Descomposición de construcciones complejas</h6>
+                                <small style="transition: color 0.3s ease;">Simplificación de estructuras</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optimización sobre IR -->
+            <div class="mt-5">
+                <div class="border-bottom pb-3 mb-4">
+                    <h4 class="mb-0" style="color: var(--orange);"><i class="fas fa-rocket me-2"></i>Optimización sobre IR</h4>
+                </div>
+                <div class="">
+                    <p class="fs-5">
+                        Las optimizaciones se aplican mayoritariamente sobre IR porque:
+                    </p>
+                    <div class="border p-3 mt-3" style="border-left: 2px solid var(--orange);">
+                        <div class="d-flex">
+                            <i class="fas fa-lightbulb fa-2x me-3 mt-1" style="color: var(--orange);"></i>
+                            <div>
+                                <ul class="mb-0 fs-6">
+                                    <li class="mb-2">Evitan repetir optimizaciones para cada arquitectura destino.</li>
+                                    <li>IR ofrece una abstracción conveniente para análisis (gráficas de flujo de control, def-use chains).</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="mt-4 fw-bold fs-5" style="color: var(--orange);">Ejemplos de optimizaciones:</p>
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-trash-alt me-2" style="color: var(--orange);"></i>
+                                <span>Eliminación de código muerto</span>
+                            </div>
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-bullseye me-2" style="color: var(--orange);"></i>
+                                <span>Propagación de constantes</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-search me-2" style="color: var(--orange);"></i>
+                                <span>Análisis de alcance de variables</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-center mb-2">
+                                <i class="fas fa-redo-alt me-2" style="color: var(--orange);"></i>
+                                <span>Optimización de bucles (invariant code motion)</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-project-diagram me-2" style="color: var(--orange);"></i>
+                                <span>SSA-driven optimizations</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generación de código final -->
+            <div class="mt-5">
+                <div class="border-bottom pb-3 mb-4">
+                    <h4 class="mb-0" style="color: var(--orange);"><i class="fas fa-microchip me-2"></i>Generación de código final (back-end)</h4>
+                </div>
+                <div class="">
+                    <p class="fs-5">
+                        La generación de código final consiste en transformar el IR optimizado en instrucciones concretas 
+                        de la ISA objetivo. Tareas clave:
+                    </p>
+                    
+                    <div class="table-responsive mt-4">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th class="border-bottom py-3"><i class="fas fa-tasks me-2"></i>Tarea</th>
+                                    <th class="border-bottom py-3"><i class="fas fa-info-circle me-2"></i>Descripción</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="fw-bold py-3">Selección de instrucciones</td>
+                                    <td class="py-3">Mapear operaciones del IR a secuencias de instrucciones máquina.</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold py-3">Asignación de registros</td>
+                                    <td class="py-3">Decidir qué temporales viven en registros y cuáles en memoria; usar técnicas de spilling cuando hay falta de registros.</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold py-3">Organización de pila</td>
+                                    <td class="py-3">Generar prologs/epilogs de función, manejar parámetros y retornos según la convención de la plataforma.</td>
+                                </tr>
+                                <tr>
+                                    <td class="fw-bold py-3">Emisión de assembler/objeto</td>
+                                    <td class="py-3">Crear archivos ensamblador y luego invocar ensamblador/linker para producir ejecutable.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="alert alert-info mt-3">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-sticky-note fa-2x me-3"></i>
+                            <div>
+                                <strong>Nota:</strong> algunos compiladores generan directamente código máquina desde IR; 
+                                otros generan ensamblador intermedio.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
+<style>
+.hover-lift:hover h6, .hover-lift:hover h5 {
+    border-color: var(--orange) !important;
+    color: rgb(255, 132, 0) !important;
+    transform: translateY(-2px);
+}
+</style>
 {% endblock %}

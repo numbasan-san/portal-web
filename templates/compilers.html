@@ -1,10 +1,366 @@
-
+<!-- compilers.html -->
 {% extends "./partials/base.html" %}
 
 {% block body %}
-        <br  />
-    <div class="container container-fluid page-container">
-        <h2 class="text-center text-uppercase">compiladores</h2>
-            <hr  />
+<br>
+<div class="container container-fluid page-container">
+    <h2 class="text-center text-uppercase">{{ data.title }}</h2>
+    <hr>
+
+    <div class="text-center mb-4">
+        <p class="lead">Principales compiladores empleados actualmente con sus características y ámbitos de aplicación</p>
     </div>
+
+    <!-- Pestañas de navegación -->
+    <ul class="nav nav-tabs mb-4" id="compilerTabs" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="gcc-tab" data-bs-toggle="tab" data-bs-target="#gcc" type="button" role="tab" aria-controls="gcc" aria-selected="true">
+                GCC
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="clang-tab" data-bs-toggle="tab" data-bs-target="#clang" type="button" role="tab" aria-controls="clang" aria-selected="false">
+                Clang/LLVM
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="msvc-tab" data-bs-toggle="tab" data-bs-target="#msvc" type="button" role="tab" aria-controls="msvc" aria-selected="false">
+                MSVC/Roslyn
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="java-tab" data-bs-toggle="tab" data-bs-target="#java" type="button" role="tab" aria-controls="java" aria-selected="false">
+                Java/HotSpot
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="otros-tab" data-bs-toggle="tab" data-bs-target="#otros" type="button" role="tab" aria-controls="otros" aria-selected="false">
+                Otros Compiladores
+            </button>
+        </li>
+    </ul>
+
+    <!-- Contenido de las pestañas -->
+    <div class="tab-content" id="compilerTabsContent">
+        
+        <!-- Pestaña GCC -->
+        <div class="tab-pane fade show active" id="gcc" role="tabpanel" aria-labelledby="gcc-tab" tabindex="0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-primary">
+                        <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">GCC (GNU Compiler Collection)</h5>
+                            <span class="badge bg-light text-primary">Sistema</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <strong class="text-primary">Lenguajes:</strong>
+                                    <div class="mt-2">
+                                        <span class="badge bg-light text-dark me-2 mb-2">C</span>
+                                        <span class="badge bg-light text-dark me-2 mb-2">C++</span>
+                                        <span class="badge bg-light text-dark me-2 mb-2">Fortran</span>
+                                        <span class="badge bg-light text-dark me-2 mb-2">Ada</span>
+                                        <span class="badge bg-light text-dark me-2 mb-2">Go</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <strong class="text-primary">Plataformas:</strong>
+                                    <p class="mb-0 mt-2">Linux, Windows, macOS, BSD, Embedded Systems</p>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <strong class="text-primary">Características:</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li>Madurez y portabilidad excepcional</li>
+                                    <li>Optimizaciones poderosas y probadas</li>
+                                    <li>Soporte para múltiples arquitecturas (x86, ARM, RISC-V, PowerPC)</li>
+                                    <li>Licencia GPL, software libre</li>
+                                    <li>Amplia base de usuarios y comunidad</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-primary">Uso típico:</strong>
+                                <p class="mb-0 mt-2">Desarrollo de sistemas operativos, aplicaciones de alto rendimiento, toolchains embebidos, compilación cruzada</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña Clang/LLVM -->
+        <div class="tab-pane fade" id="clang" role="tabpanel" aria-labelledby="clang-tab" tabindex="0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-success">
+                        <div class="card-header bg-success text-white d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Clang/LLVM</h5>
+                            <span class="badge bg-light text-success">Moderno</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <strong class="text-success">Componentes:</strong>
+                                    <p class="mb-1">Clang (front-end), LLVM (infraestructura de back-end)</p>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <strong class="text-success">Lenguajes:</strong>
+                                    <div class="mt-2">
+                                        <span class="badge bg-light text-dark me-2 mb-2">C</span>
+                                        <span class="badge bg-light text-dark me-2 mb-2">C++</span>
+                                        <span class="badge bg-light text-dark me-2 mb-2">Objective-C</span>
+                                        <span class="badge bg-light text-dark me-2 mb-2">Swift</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <strong class="text-success">Características:</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li>Modularidad y diseño moderno</li>
+                                    <li>IR de LLVM basado en SSA (Static Single Assignment)</li>
+                                    <li>Mejores tiempos de compilación y mensajes de error más claros</li>
+                                    <li>API para crear herramientas de análisis y transformación</li>
+                                    <li>Licencia Apache 2.0</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <strong class="text-success">Uso típico:</strong>
+                                <p class="mb-0 mt-2">Compilación moderna, IDEs, herramientas de análisis estático, proyectos que requieren transformaciones avanzadas de código, desarrollo en macOS/iOS</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña MSVC/Roslyn -->
+        <div class="tab-pane fade" id="msvc" role="tabpanel" aria-labelledby="msvc-tab" tabindex="0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-info">
+                        <div class="card-header bg-info text-white d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">MSVC / Roslyn</h5>
+                            <span class="badge bg-light text-info">Windows</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <strong class="text-info">MSVC (Microsoft Visual C++):</strong>
+                                    <ul class="mt-2">
+                                        <li>Compilador tradicional para C/C++</li>
+                                        <li>Integración nativa con Visual Studio</li>
+                                        <li>Optimizado para plataforma Windows</li>
+                                        <li>Soporte para .NET y tecnologías Microsoft</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <strong class="text-info">Roslyn (.NET Compiler Platform):</strong>
+                                    <ul class="mt-2">
+                                        <li>Plataforma de compilación para C# y Visual Basic</li>
+                                        <li>APIs públicas para análisis y refactorización</li>
+                                        <li>Compilación como servicio</li>
+                                        <li>Mejores herramientas de desarrollo</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <strong class="text-info">Uso típico:</strong>
+                                <p class="mb-0 mt-2">Desarrollo en Windows, aplicaciones .NET, herramientas de análisis de código, integración con Visual Studio, desarrollo de videojuegos con DirectX</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña Java/HotSpot -->
+        <div class="tab-pane fade" id="java" role="tabpanel" aria-labelledby="java-tab" tabindex="0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-warning">
+                        <div class="card-header bg-warning text-dark d-flex justify-content-between align-items-center">
+                            <h5 class="mb-0">Java Compiler y HotSpot</h5>
+                            <span class="badge bg-light text-warning">JVM</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6 mb-4">
+                                    <strong class="text-warning">javac (Compilador Java):</strong>
+                                    <ul class="mt-2">
+                                        <li>Compilador que traduce Java a bytecode</li>
+                                        <li>Bytecode es formato intermedio para JVM</li>
+                                        <li>Verificación de tipos en tiempo de compilación</li>
+                                        <li>Parte del JDK (Java Development Kit)</li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6 mb-4">
+                                    <strong class="text-warning">JVM / HotSpot:</strong>
+                                    <ul class="mt-2">
+                                        <li>Incluye JIT (compilación en tiempo de ejecución)</li>
+                                        <li>Optimización dinámica basada en profiling</li>
+                                        <li>Garbage collection automático</li>
+                                        <li>Múltiples implementaciones (OpenJDK, Oracle JDK)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div>
+                                <strong class="text-warning">Características principales:</strong>
+                                <ul class="mb-0 mt-2">
+                                    <li>Compilación a bytecode intermedio (Write Once, Run Anywhere)</li>
+                                    <li>JIT compilation para alto rendimiento</li>
+                                    <li>Garbage collection automático</li>
+                                    <li>Portabilidad multiplataforma</li>
+                                    <li>Ecosistema maduro y ampliamente adoptado</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pestaña Otros Compiladores -->
+        <div class="tab-pane fade" id="otros" role="tabpanel" aria-labelledby="otros-tab" tabindex="0">
+            <div class="row">
+                <div class="col-12">
+                    <div class="border-secondary">
+                        <div class="card-header bg-secondary text-white">
+                            <h5 class="mb-0">Otros compiladores relevantes</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <!-- Rust -->
+                                <div class="col-lg-4 mb-4">
+                                    <div class="h-100 border-dark">
+                                        <div class="card-header bg-dark text-white">
+                                            <h6 class="mb-0">Rust</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><strong>Características:</strong> Foco en seguridad de memoria, cero cost abstractions, sistema de ownership</p>
+                                            <p class="card-text"><strong>Uso:</strong> Sistemas embebidos, navegadores (Firefox), herramientas de sistema</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- TypeScript -->
+                                <div class="col-lg-4 mb-4">
+                                    <div class="h-100 border-primary">
+                                        <div class="card-header bg-primary text-white">
+                                            <h6 class="mb-0">TypeScript</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><strong>Características:</strong> Superset de JavaScript, tipado estático, transpilación</p>
+                                            <p class="card-text"><strong>Uso:</strong> Desarrollo web a gran escala, aplicaciones empresariales</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Go -->
+                                <div class="col-lg-4 mb-4">
+                                    <div class="h-100 border-success">
+                                        <div class="card-header bg-success text-white">
+                                            <h6 class="mb-0">Go</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><strong>Características:</strong> Compilación rápida, garbage collection, concurrencia nativa</p>
+                                            <p class="card-text"><strong>Uso:</strong> Servidores web, herramientas CLI, sistemas distribuidos</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Swift -->
+                                <div class="col-lg-4 mb-4">
+                                    <div class="h-100 border-warning">
+                                        <div class="card-header bg-warning text-dark">
+                                            <h6 class="mb-0">Swift</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><strong>Características:</strong> Seguridad de memoria, sintaxis moderna, interoperabilidad con Objective-C</p>
+                                            <p class="card-text"><strong>Uso:</strong> Desarrollo iOS/macOS, aplicaciones móviles</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Kotlin -->
+                                <div class="col-lg-4 mb-4">
+                                    <div class="h-100 border-info">
+                                        <div class="card-header bg-info text-white">
+                                            <h6 class="mb-0">Kotlin</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><strong>Características:</strong> Interoperable con Java, null safety, más conciso que Java</p>
+                                            <p class="card-text"><strong>Uso:</strong> Desarrollo Android, backend, multiplataforma</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- WebAssembly -->
+                                <div class="col-lg-4 mb-4">
+                                    <div class="h-100 border-danger">
+                                        <div class="card-header bg-danger text-white">
+                                            <h6 class="mb-0">WebAssembly</h6>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="card-text"><strong>Características:</strong> Formato binario, ejecución en navegadores, múltiples lenguajes fuente</p>
+                                            <p class="card-text"><strong>Uso:</strong> Aplicaciones web de alto rendimiento, juegos en navegador</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.badge {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.card-header h5 {
+    font-weight: 600;
+}
+
+.card-body ul {
+    padding-left: 1.2rem;
+}
+
+.card-body li {
+    margin-bottom: 0.3rem;
+}
+
+.nav-tabs .nav-link {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: 600;
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
+}
+
+.tab-pane {
+    animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+</style>
 {% endblock %}

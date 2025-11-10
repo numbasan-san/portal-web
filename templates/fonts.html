@@ -1,10 +1,107 @@
-
+<!-- fonts.html -->
 {% extends "./partials/base.html" %}
 
 {% block body %}
-        <br  />
-    <div class="container container-fluid page-container">
-        <h2 class="text-center text-uppercase">fuentes</h2>
-            <hr  />
+<br>
+<div class="container container-fluid page-container">
+    <h2 class="text-center text-uppercase">{{ data.title }}</h2>
+    <hr style="border: none; height: 1px; background: var(--orange);">
+    
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="mb-4">
+                <div class="border-bottom pb-3 mb-4">
+                    <h4 class="mb-0" style="color: var(--orange);"><i class="fas fa-book me-2"></i>Fuentes Bibliográficas</h4>
+                </div>
+                <div class="">
+                    <div class="list-unstyled">
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                Soto, R. (2010, marzo). <em>Teoría de Autómatas y Compiladores [ICI-445]: Capítulo 1: Lenguajes y Gramáticas Formales</em> [Diapositivas de clase]. Escuela de Ingeniería Informática, Pontificia Universidad Católica de Valparaíso.
+                            </p>
+                            <small style="color: var(--orange);">https://zeus.inf.ucv.cl/~rsoto/assets/pdf/ICI/Cap1_ICI445.pdf</small>
+                        </div>
+                        
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                E. HOPCROFT, J., MOTWANI, R., & D. ULLMAN, J. (2008). <em>Introducción a la teoría de autómatas, lenguajes y computación</em> (M. Martín-Romo, Ed.; Vuelapluma, Trad.; 3a ed.).
+                            </p>
+                            <small style="color: var(--orange);">https://xamanek.izt.uam.mx/map/cursos/Automatas-HMU08.pdf</small>
+                        </div>
+                        
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                Phases of a Compiler - GeeksforGeeks. (2025, 26 de agosto). GeeksforGeeks.
+                            </p>
+                            <small style="color: var(--orange);">https://www.geeksforgeeks.org/compiler-design/phases-of-a-compiler/</small>
+                        </div>
+                        
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                Delfín Ruiz, M. E. (2024, 1 de octubre). Compiladores y automátas. EdutekaLab.
+                            </p>
+                            <small style="color: var(--orange);">https://edtk.co/plan/64809</small>
+                        </div>
+                        
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                WebHome/HerramientasProgramacion/IntroduccionCompiladores - Técnicas Digitales II Wiki. (s.f.). CIII – UTN FRC – Centro de Investigacion en Informatica para la Ingenieria.
+                            </p>
+                            <small style="color: var(--orange);">https://ciii.frc.utn.edu.ar/TecnicasDigitalesII/WebHome/HerramientasProgramacion/IntroduccionCompiladores</small>
+                        </div>
+                        
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                ¿Cómo funciona un compilador? - S3lab. (s.f.). S3lab.
+                            </p>
+                            <small style="color: var(--orange);">https://s3lab.deusto.es/como-funciona-compilador/</small>
+                        </div>
+                        
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                Compilador Diseño - Generación de Código Intermedio. (s.f.). Free Tutorials on Technical and Non Technical Subjects.
+                            </p>
+                            <small style="color: var(--orange);">https://www.tutorialspoint.com/es/compiler_design/compiler_design_intermediate_code_generations.htm</small>
+                        </div>
+                        
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                Proceso completo de compilación: Guía paso a paso para principiantes. (s.f.). Tutoriales » Tuto Window.
+                            </p>
+                            <small style="color: var(--orange);">https://tutowindow.com/como-es-el-proceso-de-compilacion/</small>
+                        </div>
+                        
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                Fases del compilador con ejemplo: proceso y pasos de compilación. (s.f.). Guru99.
+                            </p>
+                            <small style="color: var(--orange);">https://www.guru99.com/es/compiler-design-phases-of-compiler.html</small>
+                        </div>
+                        
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                El Proceso de Compilación. (s.f.). Algor Cards | Search and fin mind maps, flashcards, and summaries.
+                            </p>
+                            <small style="color: var(--orange);">https://cards.algoreducation.com/es/content/aXUf9nb_/proceso-compilacion-informatica</small>
+                        </div>
+                        
+                        <div class="mb-4 p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                Explicación detallada de los tres compiladores principales: GCC, LLVM y Clang - programador clic. (s.f.). programador clic.
+                            </p>
+                            <small style="color: var(--orange);">https://www.programmerclick.com/article/77963880251/</small>
+                        </div>
+                        
+                        <div class="p-3" style="border-left: 2px solid var(--orange);">
+                            <p class="mb-1" style="color: var(--text-secondary);">
+                                Mejores compiladores de C++: ¿Cuál es el más utilizado en la actualidad? (s.f.).
+                            </p>
+                            <small style="color: var(--orange);">https://www.byronvargas.com/web/que-compilador-se-usa-para-c/</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 {% endblock %}

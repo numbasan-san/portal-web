@@ -1,14 +1,14 @@
+<!-- index.html -->
 {% extends "./partials/base.html" %}
 
 {% block body %}
-    <br  />
+<br>
 <div class="container container-fluid page-container">
     <div class="text-center">
-        <h2 class="text-uppercase">integrantes</h2>
-            <hr />        
+        <h2 class="text-center text-uppercase">{{ data.title }}</h2>
+            <hr  />
         <div class="integrante-layout">
             {% for integrante in data.integrantes %}
-                
                 <div class="integrante-card">
                     <a href="#" class="card-link">
                         <img class="integrante-img" 
@@ -24,8 +24,9 @@
                 </div>
             {% endfor %}
         </div>
-            <hr />
-        <h2>Grupo 2</h2>
+        
+        <hr>
+        <h2 class="fw-bold" style="color: var(--orange);">Grupo 2</h2>
     </div>
 </div>
 {% endblock %}
