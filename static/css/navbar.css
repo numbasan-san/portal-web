@@ -1,0 +1,64 @@
+
+/* Estilos para el sidebar */
+.navbar-nav .nav-link {
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+    color: var(--text-secondary);
+}
+
+.navbar-nav .nav-link:hover {
+    background: rgba(255, 132, 0, 0.1);
+    border-left-color: var(--orange);
+    color: var(--orange);
+}
+
+.navbar-nav .nav-link.active {
+    background: rgba(255, 132, 0, 0.2);
+    border-left-color: var(--orange);
+    color: var(--orange);
+}
+
+/* Asegurar que el contenido principal tenga el margen correcto */
+.main-content {
+    margin-left: 250px;
+    min-height: 100vh;
+    transition: margin-left 0.3s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .navbar {
+        width: 100% !important;
+        height: auto !important;
+        position: relative !important;
+    }
+    
+    .main-content {
+        margin-left: 0 !important;
+    }
+    
+    .navbar-nav {
+        flex-direction: row !important;
+        overflow-x: auto;
+    }
+    
+    .nav-item {
+        white-space: nowrap;
+    }
+    
+    .nav-link {
+        padding: 1rem 0.5rem !important;
+        border-left: none !important;
+        border-bottom: 3px solid transparent;
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        border-left: none !important;
+        border-bottom-color: var(--orange);
+    }
+    
+    .navbar-brand {
+        font-size: 1.2rem !important;
+    }
+}

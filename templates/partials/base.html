@@ -1,11 +1,10 @@
-
 {% include "./partials/head.html" %}
 <body>
-    <!-- Aquí va tu navbar -->
-        
+    <!-- Sidebar -->
     {% include "./partials/navbar.html" %}
     
-    <main class="main-content">
+    <!-- Contenido principal con margen para el sidebar -->
+    <main class="main-content" style="margin-left: 250px; min-height: 100vh;">
         {% block body %}{% endblock %}
     </main>
     

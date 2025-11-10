@@ -1,5 +1,5 @@
  
-<!-- Header -->
+<!-- Header 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed w-100" style="z-index: 500">
     <div class="container float-center">
 
@@ -27,6 +27,71 @@
                     <a class="nav-link" href="{{ url_for('fonts')}}" tabindex="-1" >Fuentes</a>
                 </li>
             </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+<!-- Sidebar Lateral -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark position-fixed vh-100" style="width: 250px; left: 0; top: 0; z-index: 1000;">
+    <div class="container-fluid h-100 d-flex flex-column">
+        <!-- Logo/Brand -->
+        <div class="py-3 border-bottom border-secondary">
+            <a class="navbar-brand fw-bold fs-4" href="{{ url_for('index') }}">COMPILADORES</a>
+        </div>
+
+        <!-- Menú de navegación -->
+        <div class="flex-grow-1">
+            <ul class="navbar-nav d-flex flex-column w-100">
+                <li class="nav-item">
+                    <a class="nav-link py-3 d-flex align-items-center" href="{{ url_for('index') }}">
+                        <i class="fas fa-home me-3"></i>
+                        <span>Inicio</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-3 d-flex align-items-center" href="{{ url_for('definition')}}">
+                        <i class="fas fa-book me-3"></i>
+                        <span>Definición</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-3 d-flex align-items-center" href="{{ url_for('structure')}}">
+                        <i class="fas fa-sitemap me-3"></i>
+                        <span>Estructura</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-3 d-flex align-items-center" href="{{ url_for('middle_end_code')}}">
+                        <i class="fas fa-code me-3"></i>
+                        <span>Código Medio y Final</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-3 d-flex align-items-center" href="{{ url_for('phases')}}">
+                        <i class="fas fa-list-ol me-3"></i>
+                        <span>Fases</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-3 d-flex align-items-center" href="{{ url_for('compilers')}}">
+                        <i class="fas fa-cogs me-3"></i>
+                        <span>Compiladores</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link py-3 d-flex align-items-center" href="{{ url_for('fonts')}}">
+                        <i class="fas fa-font me-3"></i>
+                        <span>Fuentes</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Footer del sidebar -->
+        <div class="py-3 border-top border-secondary text-center">
+            <small class="text-muted">Grupo 2</small>
         </div>
     </div>
 </nav>
